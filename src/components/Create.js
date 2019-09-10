@@ -1,4 +1,6 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 class Create extends React.Component {
     render() {
@@ -56,29 +58,29 @@ class Create extends React.Component {
                 <div className="group">
                     <label>Amenities</label>
                     <label className="checkbox">
-                        <input type="checkbox" name="Swimming Pool" />
+                        <input type="checkbox"/> Swimming Pool
                     </label>
                     <label className="checkbox">
-                        <input type="checkbox" name="Kitchen" />
+                        <input type="checkbox"/> Kitchen
                     </label>
                     <label className="checkbox">
-                        <input type="checkbox" name="Wi-Fi" />
+                        <input type="checkbox"/> Wi-Fi
                     </label>
                     <label className="checkbox">
-                        <input type="checkbox" name="TV" />
+                        <input type="checkbox"/> TV
                     </label>
                     <label className="checkbox">
-                        <input type="checkbox" name="Gym" />
+                        <input type="checkbox" /> Gym
                     </label>
                     <label className="checkbox">
-                        <input type="checkbox" name="Iron" />
+                        <input type="checkbox"/> Iron
                     </label>
                     <label className="checkbox">
-                        <input type="checkbox" name="Air Conditioning" />
+                        <input type="checkbox"/> Air Conditioning
                     </label>
                 </div>
                 <button className="primary">Publish this Place</button>
-                <button className="cancel"><i className="fas fa-times"></i></button>
+                <button className="cancel"><FontAwesomeIcon icon={faTimes}/></button>
             </form>
         </>
         )

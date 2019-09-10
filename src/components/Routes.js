@@ -4,6 +4,8 @@ import Places from './Places'
 import ProfileContainer from './ProfileContainer'
 import Signup from './Signup'
 import Login from './Login'
+import Place from './Place'
+
 
 
 class Routes extends React.Component {
@@ -16,6 +18,7 @@ render () {
           <Route path='/profile' component={ProfileContainer} />
           <Route path='/signup' component={Signup} />
           <Route path='/login' component={Login} />
+          <Route path='/place' component={Place} />
         </Switch>
       </BrowserRouter>
     );

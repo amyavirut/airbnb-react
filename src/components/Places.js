@@ -2,11 +2,12 @@ import React from 'react'
 import Thumbnail from './Thumbnail'
 import Navbar from './Navbar'
 import '../styles/Grid.css'
+import Filter from './Filter'
 
 class Places extends React.Component {
     state = {
         places: [
-            {roomType:'ENTIRE VILLA', rooms: 7, title:'Luxury Villa Indu Siam', location:'Koh Samui, Thailand', price: 350, reviews: 37},
+            {roomType:'ENTIRE VILLA', rooms: 7, title:'Luxury Villa Indu Siam', location:'Koh Samui, Thailand', price: 350, reviews: 37, liked: true},
             {roomType:'ENTIRE VILLA', rooms: 6, title:'Villa Kelusa', location:'Bali, Indonesia', price: 400, reviews: 18},
             {roomType:'PRIVATE ROOM', rooms: 1, title:'Tropical Architecture', location:'Koh Samui', price: 100, reviews: 127},
             {roomType:'ENTIRE HOUSE', rooms: 1, title:'Dreamy Tropical Tree House', location:'Hilo Forest, Hawaii', price: 120, reviews: 127},
@@ -21,6 +22,7 @@ class Places extends React.Component {
         return (
         <div>
             <Navbar/>
+            <Filter/>
             <div className="grid five large">
                 {this.state.places.map(place =>
                     <Thumbnail place={place}/>

@@ -16,8 +16,16 @@ class Gallery extends React.Component {
     }
 
     render() {
-        return ''
-    }
+        return (
+        <div className="gallery">
+        {/* <div className="image-main" {...this.state.images[0]}> */}
+            <button className="icon">
+                <i className="far fa-heart"></i>
+            </button>
+        {/* </div> */}
+       
+        </div>
+        )}
 }
 
 export default Gallery 
