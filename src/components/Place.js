@@ -9,6 +9,7 @@ import Gallery from './Gallery'
 import Navbar from './Navbar'
 import axios from 'axios'
 import Review from './Review'
+import BookingForm from './BookingForm'
 
 library.add(faHome, faUserFriends, faBed, faBath, faUtensils, faDumbbell,
     faTshirt, faSwimmer, faWind, faTv, faWifi)
@@ -21,6 +22,8 @@ class Place extends React.Component {
             reviews: [],
             host: {},
             type: {},
+            rating: 0,
+            guests: 0
         }
     }
 
@@ -97,46 +100,9 @@ class Place extends React.Component {
                                 )}
                             </div>
                         </div>
-                        <div className="sidebar booking">
-                            <div className="card shadow">
-                                <div className="content large">
-                                    <h3>$350<small>per night</small></h3>
-                                    <small>
-                                        <i className="fas fa-star"></i>
-                                        <i className="fas fa-star"></i>
-                                        <i className="fas fa-star"></i>
-                                        <i className="fas fa-star"></i>
-                                        <i className="far fa-star"></i>
-                                        <span>4 Reviews</span>
-                                    </small>
-                                    <form className="small">
-                                        <div className="group">
-                                            <label>Dates</label>
-                                            <input type="text" placeholder="Check-in" />
-                                            <input type="text" placeholder="Check-out" />
-                                        </div>
-                                        <div className="group">
-                                            <label>Guests</label>
-                                            <select>
-                                                <option>1 guest</option>
-                                                <option>2 guests</option>
-                                                <option>3 guests</option>
-                                                <option>4 guests</option>
-                                                <option>5 guests</option>
-                                                <option>6 guests</option>
-                                                <option>7 guests</option>
-                                                <option>8 guests</option>
-                                                <option>9 guests</option>
-                                                <option>10 guests</option>
-                                            </select>
-                                        </div>
-                                        <div className="group">
-                                            <button className="secondary full">Book this place</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                        <BookingForm price={this.state.place.price}
+                            reviews={this.state.place.reviews.length}
+                            rating={this.state.place.rating} guests={this.state.place.guests}/>
                     </div>
                 </div>
             </>

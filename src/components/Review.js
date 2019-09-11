@@ -1,7 +1,5 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar as solidStar} from '@fortawesome/free-solid-svg-icons'
-import { faStar as emptyStar } from '@fortawesome/free-regular-svg-icons'
+import Rating from './Rating'
 
 class Review extends React.Component {
     props = {
@@ -25,12 +23,7 @@ class Review extends React.Component {
                         </div>
                     </div>
                     <div className="rating">
-                        {[...Array(this.props.review.rating)].map(_ =>
-                            <FontAwesomeIcon icon={solidStar}/>
-                        )}
-                        {[...Array(5 - this.props.review.rating)].map(_ =>
-                            <FontAwesomeIcon icon={emptyStar}/>
-                        )}
+                        <Rating rating={this.props.review.rating}/>
                     </div>
                     <p>{this.props.review.content}</p>
                 </div>
