@@ -1,4 +1,7 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart as emptyHeart } from '@fortawesome/free-regular-svg-icons'
 
 class Gallery extends React.Component {
     state = {
@@ -17,15 +20,20 @@ class Gallery extends React.Component {
 
     render() {
         return (
-        <div className="gallery">
-        {/* <div className="image-main" {...this.state.images[0]}> */}
-            <button className="icon">
-                <i className="far fa-heart"></i>
-            </button>
-        {/* </div> */}
-       
-        </div>
-        )}
+            <div className="gallery">
+                <div className="image-main" style={{ backgroundImage: `url(${this.state.images[0]})` }}>
+                    <button className="icon">
+                        <FontAwesomeIcon icon={emptyHeart} />
+                    </button>
+                </div>
+                <div className="thumbnails">
+                    {this.state.images.map(image =>
+                        <div className="thumbnail" style={{ backgroundImage: `url(${image})` }}></div>
+                    )}
+                </div>
+            </div>
+        )
+    }
 }
 
 export default Gallery 
