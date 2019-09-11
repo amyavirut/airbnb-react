@@ -9,9 +9,10 @@ class Navbar extends React.Component {
         return (
         <nav>
 			<Link to="/" className="logo"/>
-			<div class="profile">
+			<div className="profile">
 				<Link to="/profile" className="button">
-					<div className="avatar" style={{backgroundImage: "url('https://randomuser.me/api/portraits/men/9.jpg')" }} />					<span>Tony</span>
+					<div className="avatar" style={{backgroundImage: "url('https://randomuser.me/api/portraits/men/9.jpg')" }} />					
+                    <span>Tony</span>
 				</Link>
 			</div>
         </nav>

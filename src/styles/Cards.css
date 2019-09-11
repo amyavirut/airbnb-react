@@ -62,7 +62,7 @@ a.card {
 	height: 24px;
 }
 
-.card .image > .icon i.far {
+.card .image > .icon svg[data-prefix="far"] {
 	color: white;
 }
 
@@ -129,7 +129,7 @@ a.card {
 	line-height: 30px;
 }
 
-.card.specs ul > li > i {
+.card.specs ul > li > svg {
 	margin-right: 8px;
 }
 

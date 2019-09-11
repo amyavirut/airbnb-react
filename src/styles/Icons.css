@@ -1,8 +1,8 @@
-i {
+svg {
 	color: #a2a2a2;
 }
 
-.fa-heart.fas {
+.fa-heart[data-prefix="fas"] {
 	color: tomato;
 }
 
@@ -11,6 +11,6 @@ i {
 	color: #00988f;
 }
 
-small i + span {
+small svg + span {
 	margin-left: 10px;
 }

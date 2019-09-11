@@ -12,6 +12,7 @@ import '../styles/Cards.css'
 import '../styles/Icons.css'
 import '../styles/Gallery.css'
 import '../styles/Filters.css'
+import '../styles/Review.css'
 
 class App extends React.Component {
   render() {
