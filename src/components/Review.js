@@ -18,17 +18,17 @@ class Review extends React.Component {
             <div className="card review">
                 <div className="content">
                     <div className="user">
-                        <div className="avatar" style={{ backgroundImage: `url(${this.props.review.avatar}})` }}></div>
+                        <div className="avatar" style={{ backgroundImage: `url(${this.props.review.author.avatar})` }}></div>
                         <div className="name">
                             <small>{this.props.review.date}</small>
-                            <span>{this.props.review.name}</span>
+                            <span>{this.props.review.author.name}</span>
                         </div>
                     </div>
                     <div className="rating">
-                        {{...Array(this.props.review.rating)}.map(_ =>
+                        {[...Array(this.props.review.rating)].map(_ =>
                             <FontAwesomeIcon icon={solidStar}/>
                         )}
-                        {{...Array(5 - this.props.review.rating)}.map(_ =>
+                        {[...Array(5 - this.props.review.rating)].map(_ =>
                             <FontAwesomeIcon icon={emptyStar}/>
                         )}
                     </div>
