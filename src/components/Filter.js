@@ -3,8 +3,6 @@ import React from 'react'
 
 
 class Filter extends React.Component {
-    types = ['All Types', 'Entire Villa', 'Shared Villa', 
-        'Entire House', 'Shared House', 'Private Room']
     sort = {
         date: "Latest",
         price: "Price",
@@ -20,12 +18,12 @@ class Filter extends React.Component {
                     )}
                 </select>
                 <select>
-                    {this.types.map((e, idx) =>
-                        <option value={idx}>{e}</option>
+                    {this.props.types.map(e =>
+                        <option value={e._id}>{e.name}</option>
                     )}
                 </select>
                 <input type="number" placeholder="max price" />
-                
+
                 <select>
                     <option value="date">Latest</option>
                     <option value="price">Price</option>

@@ -7,7 +7,8 @@ import axios from 'axios'
 
 class Places extends React.Component {
     state = {
-        places: []
+        places: [],
+        types: [],
     }
     componentWillMount() {
         axios.get('http://localhost:5000/places')
@@ -17,13 +18,20 @@ class Places extends React.Component {
                 })
             })
             .catch(err => console.log(err))
+        axios.get('http://localhost:5000/types')
+            .then(res => {
+                this.setState({
+                    types: res.data
+                })
+            })
+            .catch(err => console.log(err))
     }
 
     render() {
         return (
             <div>
                 <Navbar />
-                <Filter />
+                <Filter types={this.state.types} />
                 <div className="grid five large">
                     {this.state.places.map(place =>
                         <Thumbnail place={place} />
