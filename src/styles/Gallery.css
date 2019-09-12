@@ -28,7 +28,7 @@
 	border: none;
 }
 
-.gallery .image-main .icon svg {
+.gallery .image-main .icon svg[data-prefix="far"] {
 	color: white;
 }
 
