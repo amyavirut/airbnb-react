@@ -5,13 +5,12 @@ import { faStar as emptyStar } from '@fortawesome/free-regular-svg-icons'
 
 class Rating extends React.Component {
     render() {
-        console.log(this.props)
         return <>
-            {[...Array(this.props.rating)].map(_ =>
-                <FontAwesomeIcon icon={solidStar}/>
+            {[...Array(this.props.rating)].map((_, idx) =>
+                <FontAwesomeIcon icon={solidStar} key={idx}/>
             )}
-            {[...Array(5 - this.props.rating)].map(_ =>
-                <FontAwesomeIcon icon={emptyStar}/>
+            {[...Array(5 - this.props.rating)].map((_, idx)=>
+                <FontAwesomeIcon icon={emptyStar} key={idx}/>
             )}
         </>
     }

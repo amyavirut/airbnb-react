@@ -22,7 +22,7 @@ class BookingForm extends React.Component {
                                 <label>Guests</label>
                                 <select>
                                     {[...Array(this.props.guests)].map((_, idx) =>
-                                        <option>{idx + 1} {idx === 0 ? "guest" : "guests"}</option>
+                                        <option key={idx}>{idx + 1} {idx === 0 ? "guest" : "guests"}</option>
                                     )}
                                 </select>
                             </div>

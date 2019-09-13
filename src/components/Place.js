@@ -10,6 +10,7 @@ import Navbar from './Navbar'
 import axios from 'axios'
 import Review from './Review'
 import BookingForm from './BookingForm'
+import Rating from './Rating';
 
 library.add(faHome, faUserFriends, faBed, faBath, faUtensils, faDumbbell,
     faTshirt, faSwimmer, faWind, faTv, faWifi)
@@ -27,7 +28,7 @@ class Place extends React.Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         axios.get('http://localhost:5000/places/5d78bbbb2abad5c78ede4431')
             .then(res => {
                 this.setState({
@@ -74,7 +75,7 @@ class Place extends React.Component {
                                 <div className="content">
                                     <ul className="grid two">
                                         {this.state.place.amenities.map(a =>
-                                            <li><FontAwesomeIcon icon={a.icon} />{a.name}</li>
+                                            <li key={a._id}><FontAwesomeIcon icon={a.icon} />{a.name}</li>
                                         )}
                                     </ul>
                                 </div>
@@ -86,17 +87,13 @@ class Place extends React.Component {
                                         <label>Leave a review</label>
                                         <textarea></textarea>
                                         <div className="rating">
-                                            <i className="far fa-star"></i>
-                                            <i className="far fa-star"></i>
-                                            <i className="far fa-star"></i>
-                                            <i className="far fa-star"></i>
-                                            <i className="far fa-star"></i>
+                                            <Rating rating={0}/>
                                         </div>
                                         <button className="primary small">Submit</button>
                                     </div>
                                 </form>
                                 {this.state.place.reviews.map(r =>
-                                    <Review review={r} />
+                                    <Review key={r._id} review={r} />
                                 )}
                             </div>
                         </div>

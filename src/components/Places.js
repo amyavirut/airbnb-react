@@ -10,7 +10,7 @@ class Places extends React.Component {
         places: [],
         types: [],
     }
-    componentWillMount() {
+    componentDidMount() {
         axios.get('http://localhost:5000/places')
             .then(res => {
                 this.setState({
