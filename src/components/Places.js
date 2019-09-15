@@ -8,20 +8,17 @@ import axios from 'axios'
 class Places extends React.Component {
     state = {
         places: [],
-        types: [],
     }
+
     componentDidMount() {
-        axios.get('http://localhost:5000/places')
+        this.updatePlaces({})
+    }
+
+    updatePlaces = (filters) => {
+        axios.get('http://localhost:5000/places', { params: filters })
             .then(res => {
                 this.setState({
                     places: res.data
-                })
-            })
-            .catch(err => console.log(err))
-        axios.get('http://localhost:5000/types')
-            .then(res => {
-                this.setState({
-                    types: res.data
                 })
             })
             .catch(err => console.log(err))
@@ -31,7 +28,7 @@ class Places extends React.Component {
         return (
             <div>
                 <Navbar />
-                <Filter types={this.state.types} />
+                <Filter updatePlaces={this.updatePlaces}/>
                 <div className="grid five large">
                     {this.state.places.map(place =>
                         <Thumbnail place={place} />
