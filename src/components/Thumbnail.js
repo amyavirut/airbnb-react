@@ -6,7 +6,7 @@ import LikeButton from './LikeButton';
 class Thumbnail extends React.Component {
 	render() {
 		return (
-			<Link className="card link" to="/place">
+			<Link className="card link" to={`/place/${this.props.place._id}`}>
 				<div className="image" style={{ backgroundImage: `url(${this.props.place.image})` }}>
 					<LikeButton liked={this.props.place.liked} />
 				</div>

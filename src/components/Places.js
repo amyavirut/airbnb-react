@@ -31,7 +31,7 @@ class Places extends React.Component {
                 <Filter updatePlaces={this.updatePlaces}/>
                 <div className="grid five large">
                     {this.state.places.map(place =>
-                        <Thumbnail place={place} />
+                        <Thumbnail place={place} key={place._id} />
                     )}
                 </div>
             </div>

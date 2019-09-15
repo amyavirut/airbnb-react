@@ -5,7 +5,7 @@ import { faHeart as emptyHeart } from '@fortawesome/free-regular-svg-icons'
 
 class LikeButton extends React.Component {
     render() {
-        return <button className="icon">
+        return <button onClick={this.props.onClick} className="icon">
             {this.props.liked ?
                 <FontAwesomeIcon icon={solidHeart} /> :
                 <FontAwesomeIcon icon={emptyHeart} />}

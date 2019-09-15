@@ -18,7 +18,7 @@ render () {
           <Route path='/profile' component={ProfileContainer} />
           <Route path='/signup' component={Signup} />
           <Route path='/login' component={Login} />
-          <Route path='/place' component={Place} />
+          <Route path='/place/:id' component={Place} />
         </Switch>
       </BrowserRouter>
     );

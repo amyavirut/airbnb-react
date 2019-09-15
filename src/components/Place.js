@@ -23,13 +23,14 @@ class Place extends React.Component {
             reviews: [],
             host: {},
             type: {},
+            images: [],
             rating: 0,
             guests: 0
         }
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/places/5d78bbbb2abad5c78ede4431')
+        axios.get(`http://localhost:5000/places/${this.props.match.params.id}`)
             .then(res => {
                 this.setState({
                     place: res.data
@@ -38,12 +39,11 @@ class Place extends React.Component {
             .catch(err => console.log(err))
     }
 
-
     render() {
         return (
             <>
                 <Navbar />
-                <Gallery />
+                <Gallery images={this.state.place.images}/>
                 <div className="grid medium">
                     <div className="grid sidebar-right">
                         <div className="content">
