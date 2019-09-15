@@ -1,7 +1,27 @@
 import React from 'react'
 import Rating from './Rating'
+import DatePicker from 'react-datepicker'
+
+import "react-datepicker/dist/react-datepicker.css"
 
 class BookingForm extends React.Component {
+    state = {
+        checkIn: null,
+        checkOut: null,
+    }
+
+    checkInChanged = (date) => {
+        this.setState({
+            checkIn: date,
+        })
+    }
+
+    checkOutChanged = (date) => {
+        this.setState({
+            checkOut: date,
+        })
+    }
+
     render() {
         return (
             <div className="sidebar booking">
@@ -15,8 +35,8 @@ class BookingForm extends React.Component {
                         <form className="small">
                             <div className="group">
                                 <label>Dates</label>
-                                <input type="text" placeholder="Check-in" />
-                                <input type="text" placeholder="Check-out" />
+                                <DatePicker selected={this.state.checkIn} onChange={this.checkInChanged}/>
+                                <DatePicker selected={this.state.checkOut} onChange={this.checkOutChanged}/>
                             </div>
                             <div className="group">
                                 <label>Guests</label>
