@@ -30,7 +30,7 @@ class Place extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:5000/places/${this.props.match.params.id}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/places/${this.props.match.params.id}`)
             .then(res => {
                 this.setState({
                     place: res.data

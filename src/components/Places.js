@@ -15,7 +15,7 @@ class Places extends React.Component {
     }
 
     updatePlaces = (filters) => {
-        axios.get('http://localhost:5000/places', { params: filters })
+        axios.get(`${process.env.REACT_APP_API_URL}/places`, { params: filters })
             .then(res => {
                 this.setState({
                     places: res.data

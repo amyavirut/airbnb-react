@@ -25,7 +25,7 @@ class Filter extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/types')
+        axios.get(`${process.env.REACT_APP_API_URL}/types`)
             .then(res => {
                 this.setState({
                     types: res.data
