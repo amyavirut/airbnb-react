@@ -97,9 +97,7 @@ class Place extends React.Component {
                                 )}
                             </div>
                         </div>
-                        <BookingForm price={this.state.place.price}
-                            reviews={this.state.place.reviews.length}
-                            rating={this.state.place.rating} guests={this.state.place.guests}/>
+                        <BookingForm place={this.state.place}/>
                     </div>
                 </div>
             </>

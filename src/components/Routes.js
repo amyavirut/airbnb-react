@@ -5,6 +5,7 @@ import ProfileContainer from './ProfileContainer'
 import Signup from './Signup'
 import Login from './Login'
 import Place from './Place'
+import Confirm from './Confirm';
 
 
 
@@ -19,6 +20,7 @@ render () {
           <Route path='/signup' component={Signup} />
           <Route path='/login' component={Login} />
           <Route path='/place/:id' component={Place} />
+          <Route path="/confirm" component={Confirm} />
         </Switch>
       </BrowserRouter>
     );
