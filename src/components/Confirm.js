@@ -8,6 +8,15 @@ import DatePicker from 'react-datepicker'
 
 
 class Confirm extends React.Component {
+	state = {
+		days: 3, // Should be replaced by calculating days between
+		         // check-in and check-out DatePickers
+	}
+
+	amount() {
+		return this.state.days * this.props.location.state.place.price
+	}
+
 	render() {
 		let place = this.props.location.state.place
 		return <>
@@ -38,7 +47,7 @@ class Confirm extends React.Component {
 							</div>
 							<div className="group">
 								<label>Total: 3 nights</label>
-								<h2>$1,050</h2>
+								<h2>${this.amount()}</h2>
 							</div>
 							<button className="primary">Confirm</button>
 						</form>
@@ -46,10 +55,10 @@ class Confirm extends React.Component {
 						<button>Cancel</button>
 					</div>
 				</div>
-				<StripeProvider apiKey="pk_yourkey">
+				<StripeProvider apiKey={process.env.REACT_APP_STRIPE_SECRET}>
 					<div className="stripe-form">
 						<Elements>
-							<StripeForm />
+							<StripeForm amount={this.amount()} title={place.title}/>
 						</Elements>
 					</div>
 				</StripeProvider>
