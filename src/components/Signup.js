@@ -21,9 +21,10 @@ class Signup extends React.Component {
         e.preventDefault()
         console.log(this.state)
         axios.post(`${process.env.REACT_APP_API_URL}/signup`, this.state)
-            .then(data =>
+            .then(data => {
                 console.log(data)
-            ).catch(err =>
+                this.props.history.push({pathname: '/'})
+            }).catch(err =>
                 console.log(err)
             )
     }
