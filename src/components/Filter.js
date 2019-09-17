@@ -7,7 +7,7 @@ import axios from 'axios'
 // Then the componentWillUpdate lifecycle hook is used to call updatePlaces in the
 // parent component which replaces the list of places with the filtered result from
 // the API
-class Filter extends React.Component {
+class Filter extends React.PureComponent {
     state = {
         types: [],
         // Controlled inputs: https://reactjs.org/docs/forms.html
@@ -56,6 +56,7 @@ class Filter extends React.Component {
     }
 
     // Runs whenever component is changed i.e. someone changed a filter and caused render() to run
+    // Will only be called if props or state change because this is a PureComponent
     componentDidUpdate() {
         this.props.updatePlaces(this.getFilter())
     }
