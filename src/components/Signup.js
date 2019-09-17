@@ -19,11 +19,16 @@ class Signup extends React.Component {
 
     signup = (e) => {
         e.preventDefault()
-        console.log(this.state)
+        let requiredFields = ['name', 'email', 'password', 'location']
+        let emptyFields = requiredFields.filter(f => this.state[f] === "")
+        // If any required fields are empty then alert and return, don't submit form
+        if (emptyFields.length > 0) {
+            alert(`${emptyFields.join(",")} can't be empty`)
+            return
+        }
         axios.post(`${process.env.REACT_APP_API_URL}/signup`, this.state)
             .then(res => {
                 let token = res.data
-                console.log(token)
                 localStorage.setItem('token', token)
                 this.props.history.push({pathname: '/'})
             }).catch(err =>
